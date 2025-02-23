@@ -1,0 +1,23 @@
+...existing code...
+
+function addMarker() {
+    const lat = parseFloat(document.getElementById("latitude").value);
+    const lng = parseFloat(document.getElementById("longitude").value);
+    const title = document.getElementById("marcador").value;
+
+    if (!isNaN(lat) && !isNaN(lng) && title) {
+        const position = { lat: lat, lng: lng };
+        const marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: title,
+            draggable: true
+        });
+    } else {
+        alert("Por favor, insira valores válidos para latitude, longitude e título do marcador.");
+    }
+}
+
+document.querySelector("button").addEventListener("click", addMarker);
+
+...existing code...
